@@ -1,12 +1,32 @@
-var leapYear = function(year) {
-  //Lines 2-6 are not necessary for functionality because everything that's not a leap year is returned as false. Lines are used for readability and logic
-  if (parseInt(year) === NaN) {
-    return false;
-  } else if (year === "september") {
-    return false;
-  } else if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
-    return true;
-  } else {
-    return false;
+var pigLatin = function(word) {
+  var splitWord = word.split("");
+  var vowelArray = ["a", "e", "i", "o", "u"]
+
+  for (var i = 0; i < vowelArray.length; i++) {
+    if (splitWord[0] === vowelArray[i]) {
+      return (word + "ay");
+    }
   }
-};
+  for (var i = 0; i < vowelArray.length; i++) {
+    if (splitWord[0] !== vowelArray[i]) {
+      if (splitWord[1] !== vowelArray[i]) {
+        return (word.slice(2) + word.slice(0,2) + "ay");
+      }
+    return (word.slice(1) + word.slice(0,1) + "ay");
+    }
+  }
+}
+
+
+
+
+//   if (array[0] === "a" || array[0] === "e" || array[0] === "i" || array[0] === "o" || array[0] === "u") {
+//   return (word + "ay");
+//   }
+//   else if (array[0] !== "a" && array[1] !== "a" || array[0] !== "e" && array[1] !== "e" || array[0] !== "i" && array[1] !== "i" || array[0] !== "o" && array[1] !== "o") {
+//   return (word.slice(2) + word.slice(0,2) + "ay");
+//   }
+//   else if (array[0] !== "a" || array[0] !== "e" || array[0] !== "i" || array[0] !== "o" || array[0] !== "u") {
+//   return (word.slice(1) + word.slice(0,1) + "ay");
+//   }
+// }
